@@ -1,0 +1,1 @@
+export { Сommentary } from './comment'

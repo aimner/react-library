@@ -1,0 +1,155 @@
+@import '../../styles/abstracts/mixins';
+@import '../../styles/abstracts/variables';
+
+.container {
+  @include container;
+  @include flex(row, space-between, center, nowrap);
+  position: relative;
+  padding-top: 32px;
+  padding-bottom: 15px;
+
+  &_avatar {
+    @include flex(row, center, center, nowrap);
+    gap: 16px;
+    cursor: pointer;
+    &__text {
+      @include font(normal, 600, 14px, 18px, 0.1px);
+      color: $dark-color;
+    }
+    &__img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    @media (max-width: 950px) {
+      display: none;
+    }
+  }
+
+  &_logo {
+    @include flex(row, center, center, nowrap);
+    gap: 8px;
+    &__title {
+      font-size: 20px;
+    }
+    @media (max-width: 950px) {
+      display: none;
+    }
+  }
+
+  &__title {
+    @include font(normal, 700, 32px, 40px, 0.1px);
+    color: $dark-color;
+    margin-right: auto;
+    margin-left: 126px;
+    @media (max-width: 950px) {
+      margin-left: auto;
+      margin-right: 0;
+    }
+    @media (max-width: 767px) {
+      @include font(normal, 700, 18px, 28px, 0.1px);
+    }
+  }
+
+  @media (max-width: 950px) {
+    justify-content: flex-start;
+    gap: 24.67px;
+  }
+  @media (max-width: 767px) {
+    padding-top: 24px;
+  }
+}
+
+.hamburger,
+.hamburger__active {
+  @include flex(column, center, center, nowrap);
+  gap: 5.33px;
+
+  width: 32px;
+  height: 32px;
+
+  span {
+    width: 26.67px;
+    height: 2.67px;
+    background-color: $dark-color;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    @media (max-width: 767px) {
+      width: 20px;
+      height: 2px;
+    }
+  }
+
+  @media (width > 950px) {
+    display: none;
+  }
+  @media (max-width: 767px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.hamburger__active {
+  span {
+    background-image: $orange-color;
+  }
+  span:nth-child(2) {
+    opacity: 0;
+  }
+
+  span:nth-child(1) {
+    -webkit-transform: translateY(8px) rotate(45deg);
+    -ms-transform: translateY(8px) rotate(45deg);
+    -o-transform: translateY(8px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
+    @media (max-width: 767px) {
+      -webkit-transform: translateY(7px) rotate(45deg);
+      -ms-transform: translateY(7px) rotate(45deg);
+      -o-transform: translateY(7px) rotate(45deg);
+      transform: translateY(7px) rotate(45deg);
+    }
+  }
+  span:nth-child(3) {
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+    -ms-transform: translateY(-8px) rotate(-45deg);
+    -o-transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
+    @media (max-width: 767px) {
+      -webkit-transform: translateY(-7px) rotate(-45deg);
+      -ms-transform: translateY(-7px) rotate(-45deg);
+      -o-transform: translateY(-7px) rotate(-45deg);
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
+
+.container_menu {
+  position: absolute;
+  background-color: $rich-white-color;
+  box-shadow: $open-menu;
+  padding: 32px 24px;
+  border-radius: 0 0 10px 10px;
+  width: 270px;
+  top: 104px;
+  left: calc(100% - 290px);
+  @include font(normal, 700, 18px, 28px, 0.1px);
+  color: $dark-color;
+  ul {
+    @include flex(column, center, flex-end, nowrap);
+    gap: 32px;
+    li:hover {
+      color: $orange-rich-color;
+      cursor: pointer;
+    }
+  }
+}
+
+.close {
+  display: none;
+}
+
+.header___shadow {
+  box-shadow: 4px 4px 4px rgba(54, 54, 54, 0.05), -4px 4px 4px rgba(54, 54, 54, 0.05);
+}

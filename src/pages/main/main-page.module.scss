@@ -1,0 +1,18 @@
+@import '../../styles/abstracts/mixins';
+@import '../../styles/abstracts/variables';
+
+.main {
+  padding-block: 62px;
+  .container {
+    @include container;
+    @include flex(row, flex-start, flex-start, nowrap);
+    gap: 6px;
+    @media (width < 500px) {
+      padding-inline: 16px;
+    }
+  }
+  @media (max-width: 950px) {
+    padding-top: 35px;
+  }
+
+}

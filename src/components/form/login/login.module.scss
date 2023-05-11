@@ -1,0 +1,46 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+
+
+.login__loginManual {
+  @include manual;
+  margin-bottom: 18px;
+}
+
+.input {
+  border-bottom: 1px solid $grey-white-color;
+  input {
+    @include input;
+    background: none;
+    position: relative;
+    z-index: 10;
+  }
+  label {
+    @include label;
+  }
+  input:focus ~ label,
+  input[data-req='on'] ~ label {
+    @include animateLabel;
+  }
+
+  position: relative;
+  background-color: $grey-rich-white-color;
+
+}
+
+.input_marginBottom36 {
+  margin-bottom: 36px;
+}
+.input_marginBottom68{
+  margin-bottom: 68px;
+}
+
+
+.errorText {
+  color: $red-color;
+}
+
+.errorBorder {
+  border-color: $red-color;
+}

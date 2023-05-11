@@ -1,0 +1,58 @@
+@import '../../../styles/abstracts/mixins';
+@import '../../../styles/abstracts/variables';
+
+.book_comments_list_item {
+  @include flex(column, flex-start, flex-start, nowrap);
+  gap: 18px;
+
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__info {
+    @include flex(row, flex-start, center, nowrap);
+    gap: 24px;
+    @include font(normal, 400, 16px, 24px, 0.1px);
+    color: $grey-black-color;
+    @media (width < 500px) {
+      column-gap: 18px;
+      row-gap: 0;
+      height: 51px;
+      @include flex(column, center, flex-start, wrap);
+      @include font(normal, 400, 15px, 20px, 0.1px);
+    }
+  }
+
+  &__raiting {
+    @include flex(row, flex-start, center, nowrap);
+    gap: 16px;
+    padding-left: 2px;
+    @media (width < 500px) {
+      gap: 12.5px;
+    }
+    li {
+      width: 20px;
+      height: 19px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__text {
+    @include font(normal, 400, 16px, 24px, 0.1px);
+    color: $dark-color;
+    max-width: 730px;
+    @media (width < 500px) {
+      @include font(normal, 400, 15px, 20px, 0.1px);
+    }
+  }
+  @media (width < 500px) {
+    gap: 10.25px;
+  }
+}

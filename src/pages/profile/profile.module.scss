@@ -1,0 +1,21 @@
+@import '../../styles/abstracts/mixins';
+@import '../../styles/abstracts/variables';
+
+.container {
+  @include container;
+  @include flex(row, flex-start, flex-start, nowrap);
+  gap: 6px;
+  padding-block: 62px;
+  @media (width < 1000px) {
+    padding-top: 54px;
+  }
+  @media (width < 500px) {
+    padding-block: 48px 24px;
+  }
+}
+
+.container > nav {
+  @media (width > 950px) {
+    display: none;
+  }
+}

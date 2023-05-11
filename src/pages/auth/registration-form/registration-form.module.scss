@@ -1,0 +1,40 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.auth,
+.authError {
+  background-color: $rich-white-color;
+  border-radius: $radius-16px;
+  padding: 48px 56px;
+  &__title {
+    @include authTitle;
+  }
+  &__step {
+    @include font(normal, 600, 14px, 18px, 0.1px);
+    color: $dark-color;
+    margin-top: 8px;
+  }
+
+  &_form {
+    margin-top: 32px;
+    @include flex(column, flex-start, stretch, nowrap);
+
+    &__submit {
+      @include submit();
+    }
+
+    &_registrationBlock {
+      @include redirectLinkBlock;
+    }
+    &__registration {
+      @include redirectLink;
+    }
+  }
+  @media (width < 600px) {
+    padding: 24px 17px 27px 16px;
+  }
+}
+
+.authError {
+  @include blockWithError;
+}

@@ -1,0 +1,315 @@
+@import './variables';
+
+@mixin flex($flex-direction, $justify-content, $align-items, $flex-wrap) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-wrap: $flex-wrap;
+}
+
+@mixin font($font-style, $font-weight, $font-size, $line-height, $letter-spacing) {
+  font-style: $font-style;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin container {
+  max-width: 1150px;
+  padding-inline: 20px;
+  margin: 0 auto;
+  @media (max-width: 950px) {
+    padding-inline: 64px;
+  }
+  @media (max-width: 767px) {
+    padding-inline: 16px;
+  }
+}
+
+// AUTH
+
+@mixin input {
+  outline: none;
+  background-color: $grey-rich-white-color;
+  border-top-right-radius: $radius-4px;
+  border-top-left-radius: $radius-4px;
+  padding: 19px 12px;
+  @include font(normal, 400, 14px, 18px, 0.1px);
+  color: $dark-color;
+  width: 100%;
+}
+
+@mixin label {
+  @include font(normal, 400, 14px, 18px, 0.1px);
+  position: absolute;
+  top: 20px;
+  left: 11px;
+  transition: 0.2s all;
+  cursor: text;
+
+}
+
+@mixin animateLabel {
+  @include font(normal, 500, 12px, 16px, 0.2px);
+  top: 6px;
+  color: $grey-color;
+}
+
+@mixin manual {
+  @include font(normal, 500, 12px, 16px, 0.2px);
+  color: $grey-color;
+  margin-left: 12px;
+  margin-top: 2px;
+  display: block;
+}
+
+@mixin submit() {
+  @include button_primary_large(416px);
+  margin-bottom: 16px;
+  @media (width < 600px) {
+    @include font(normal, 600, 12px, 18px, 0.2px);
+    width: 255px;
+  }
+}
+
+@mixin authTitle {
+  @include font(normal, 700, 24px, 30px, 0.1px);
+  @media (width < 600px) {
+    @include font(normal, 700, 18px, 28px, 0.1px);
+  }
+}
+
+@mixin blockWithError {
+  @include flex(column, center, center, nowrap);
+  gap: 32px;
+  max-width: 600px;
+  text-align: center;
+
+  p {
+    @include font(normal, 400, 16px, 24px, 0.1px);
+    color: $dark-color;
+    @media (width < 600px) {
+      @include font(normal, 400, 15px, 20px, 0.1px);
+    }
+  }
+  @media (width < 600px) {
+    gap: 24px;
+  }
+}
+
+@mixin passwordInput {
+  position: relative;
+  @include flex(row, space-between, center, nowrap);
+  background-color: $grey-rich-white-color;
+  border-top-right-radius: $radius-4px;
+  border-bottom: 1px solid $grey-white-color;
+  padding-right: 21.25px;
+  gap: 13.5px;
+  input {
+    border: none;
+  }
+  img {
+    cursor: pointer;
+  }
+}
+
+@mixin redirectLinkBlock {
+  @include flex(row, flex-start, center, nowrap);
+  gap: 16px;
+  span {
+    @include font(normal, 400, 16px, 24px, 0.1px);
+    color: $grey-black-color;
+  }
+  @media (width < 600px) {
+    @include flex(column, flex-start, flex-start, nowrap);
+    gap: 7px;
+  }
+}
+
+@mixin redirectLink {
+  @include flex(row, center, center, nowrap);
+  @include font(normal, 600, 12px, 18px, 0.2px);
+  color: $dark-color;
+  gap: 15px;
+  text-transform: uppercase;
+}
+
+// CALENDARY, RATE
+
+@mixin closeButton {
+  position: absolute;
+  z-index: 12;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: $grey-rich-white-color;
+  color: orange;
+  top: 32px;
+  right: 32px;
+  cursor: pointer;
+  background-image: url('../../assets/img/calendary/close.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  @media (width < 768px) {
+    width: 32px;
+    height: 32px;
+    top: 16px;
+    right: 16px;
+  }
+  @include only_icon;
+}
+
+@mixin outer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 13;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(54, 54, 54, 0.3);
+  backdrop-filter: blur(10px);
+  @include flex(row, center, center, nowrap);
+  cursor: url('../../assets/img/calendary/cursor.svg'), auto;
+  &_block {
+    max-width: 528px;
+    max-height: 580px;
+    border-radius: $radius-16px;
+    background-color: $rich-white-color;
+    padding: 48px 56px 48px 56px;
+    position: relative;
+    @include flex(column, center, center, nowrap);
+    gap: 32px;
+    @media (width < 768px) {
+      padding: 42px 16px 32px 16px;
+    }
+
+    h2 {
+      @include font(normal, 700, 24px, 30px, 0.1px);
+      text-align: center;
+      max-width: 340px;
+      @media (width < 768px) {
+        max-width: 226px;
+        @include font(normal, 700, 16px, 24px, 0.1px);
+      }
+    }
+  }
+}
+
+// BUTTONS
+@mixin button_primary($width) {
+  width: $width;
+  text-transform: uppercase;
+  color: $rich-white-color;
+  background: $orange-color;
+  @include flex(row, center, center, nowrap);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    box-shadow: $icons-hover;
+  }
+  &:active {
+    filter: $icons-pressed;
+  }
+  &:disabled {
+    background: $rich-grey-white-color;
+    cursor: default;
+    &:hover {
+      box-shadow: none;
+    }
+    &:active {
+      filter: none;
+    }
+  }
+}
+
+@mixin button_primary_small($width) {
+  @include button_primary($width);
+  @include font(normal, 600, 12px, 18px, 0.1px);
+  border-radius: $radius-20px;
+  padding-block: 11px;
+}
+
+@mixin button_primary_large($width) {
+  @include button_primary($width);
+  @include font(normal, 600, 16px, 150%, 0.2px);
+  border-radius: $radius-30px;
+  padding-block: 14px;
+}
+
+@mixin button_secondary($width) {
+  width: $width;
+  text-transform: uppercase;
+  color: $dark-color;
+  background: $rich-white-color;
+  @include flex(row, center, center, nowrap);
+  border: 1px solid $grey-white-color;
+  outline: none;
+  cursor: pointer;
+  background-image: none;
+  &:hover {
+    box-shadow: $icons-hover;
+  }
+  &:active {
+    filter: $icons-pressed;
+  }
+  &:disabled {
+    background: $grey-rich-white-color;
+    color: $grey-color;
+    cursor: default;
+    &:hover {
+      box-shadow: none;
+    }
+    &:active {
+      filter: none;
+    }
+  }
+}
+
+@mixin button_secondary_small($width) {
+  @include button_secondary($width);
+  @include font(normal, 600, 12px, 18px, 0.1px);
+  border-radius: $radius-20px;
+  padding-block: 11px;
+}
+
+@mixin button_secondary_large($width) {
+  @include button_secondary($width);
+  @include font(normal, 600, 16px, 150%, 0.2px);
+  border-radius: $radius-30px;
+  padding-block: 14px;
+}
+
+@mixin only_icon {
+  &:hover {
+    cursor: pointer;
+    filter: $icons-hover;
+  }
+
+  &:active {
+    cursor: pointer;
+    filter: $icons-pressed;
+  }
+}
+
+// PROFILE
+
+@mixin empty_block {
+  height: 218px;
+  width: 100%;
+  background-color: $light-purple;
+  border-radius: $radius-10px;
+  padding: 16px;
+  @include font(normal, 700, 32px, 40px, 0.1px);
+  color: $rich-white-color;
+  @media (width < 1200px) {
+    height: 204px;
+  }
+  @media (width < 768px) {
+    @include font(normal, 700, 18px, 28px, 0.1px);
+    height: 182px;
+  }
+}

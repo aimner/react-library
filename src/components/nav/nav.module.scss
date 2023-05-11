@@ -1,0 +1,152 @@
+@import '../../styles/abstracts/mixins';
+@import '../../styles/abstracts/variables';
+
+.nav {
+  &_logOutBlock {
+    padding-top: 32px;
+    border-top: 1px solid #BFC4C9;
+    &_list {
+      @include flex(column, flex-start, flex-start, nowrap);
+      gap: 42px;
+
+    }
+  }
+  &__item,
+  &__item___active {
+    margin-bottom: 34px;
+    padding-bottom: 9px;
+    cursor: pointer;
+    @media (height < 690px) {
+      margin-bottom: 10px;
+    }
+  }
+  &__item1,
+  &__item1___active {
+    @include flex(row, space-between, center, nowrap);
+    padding-bottom: 9px;
+    width: 255px;
+    margin-right: 24px;
+  }
+  &__item1___active {
+    @include flex(row, space-between, center, nowrap);
+    border-bottom: 1px solid orangered;
+    padding-bottom: 8px;
+  }
+  &__item___active {
+    border-bottom: 1px solid orangered;
+    padding-bottom: 8px;
+    max-width: 255px;
+  }
+  &__link {
+    @include font(normal, 700, 18px, 28px, 0.1px);
+    color: $dark-color;
+  }
+  &__link:hover {
+    color: $pink-color;
+  }
+  &__link___active {
+    @include font(normal, 700, 18px, 28px, 0.1px);
+    background-image: $orange-color;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &__arrowButton {
+    background-color: inherit;
+    padding-right: 20px;
+  }
+
+  @media (max-width: 950px) {
+    position: absolute;
+    z-index: 11;
+    background-color: $grey-rich-white-color;
+    border-radius: $radius-10px;
+    padding: 32px 32px 52px 32px;
+    width: 502px;
+    transition: all 0.3s ease;
+    box-shadow: $shadow;
+    left: -510px;
+    top: 90px;
+  }
+  @media (width < 530px) {
+    width: 288px;
+    padding-inline: 16px 10px;
+    top: 76px;
+  }
+  @media (height < 590px) {
+    top: 10px;
+    height: 84vh;
+    padding-block: 10px;
+  }
+}
+
+.nav__active {
+  left: 64px;
+  @media (width < 630px) {
+    left: 16px;
+  }
+}
+
+.books {
+  overflow: hidden;
+  height: 0;
+  &__item,
+  &__item___active {
+    padding-left: 24px;
+    margin-top: 16px;
+    max-width: 279px;
+  }
+
+  &__item___active {
+    .book__name {
+      @include font(normal, 700, 16px, 24px, 0.1px);
+      background-image: $orange-color;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    span:last-child {
+      color: $dark-color;
+    }
+    .books__quantity {
+      color: $dark-color;
+      padding-left: 6px;
+    }
+  }
+
+  &__item {
+    .book__name {
+      @include font(normal, 400, 16px, 24px, 0.1px);
+      color: $dark-color;
+    }
+
+    .book__name:hover {
+      color: $pink-color;
+    }
+    .books__quantity {
+      color: $grey-color;
+      font-size: 14px;
+      padding-left: 6px;
+    }
+  }
+
+  li:first-of-type {
+    padding-left: 20px;
+    &:hover {
+      color: $pink-color;
+    }
+  }
+}
+
+.books___open {
+  height: auto;
+  @media (width < 950px) {
+    height: 41vh;
+    overflow-y: scroll;
+  }
+  @media (height < 590px) {
+    height: 31vh;
+  }
+}
+
+.books___close {
+  height: 0;
+}

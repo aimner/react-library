@@ -1,0 +1,41 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.input {
+  border-bottom: 1px solid $grey-white-color;
+  position: relative;
+  background-color: $grey-rich-white-color;
+  &__emailManual {
+    @include manual;
+    margin-bottom: 50px;
+  }
+
+  input {
+    @include input;
+    background: none;
+    position: relative;
+    z-index: 10;
+  }
+  label {
+    @include label;
+  }
+  input:focus ~ label,
+  input[data-req='on'] ~ label {
+    @include animateLabel;
+  }
+}
+
+.errorText {
+  color: $red-color;
+}
+
+.input_marginBottom36 {
+  margin-bottom: 36px;
+}
+.input_marginBottom68 {
+  margin-bottom: 68px;
+}
+
+.errorBorder {
+  border-color: $red-color;
+}

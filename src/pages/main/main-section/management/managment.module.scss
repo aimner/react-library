@@ -1,0 +1,151 @@
+@import '../../../../styles/abstracts/mixins';
+@import '../../../../styles/abstracts/variables';
+
+.management {
+  @include flex(row, space-between, center, nowrap);
+  padding-bottom: 32px;
+
+  &_buttons {
+    @include flex(row, space-between, center, nowrap);
+    gap: 16px;
+
+    &__icons,
+    &__lists {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      box-shadow: $shadow;
+      background-color: $rich-white-color;
+      @media (max-width: 767px) {
+        width: 32px;
+        height: 32px;
+      }
+      @include only_icon;
+    }
+
+    &__icons {
+      @include flex(row, center, flex-start, wrap);
+      gap: 1px;
+      padding: 12px;
+      div {
+        width: 6.48px;
+        height: 6.48px;
+        border: 1.4px solid $grey-color;
+        border-radius: 1px;
+      }
+      @media (max-width: 767px) {
+        padding: 9px;
+      }
+    }
+    &__icons___active {
+      background-image: $orange-color;
+      div {
+        border-color: $rich-white-color;
+      }
+    }
+    &__lists {
+      @include flex(column, space-between, stretch, wrap);
+      gap: 2px;
+      padding: 11.08px;
+      div {
+        width: 15.1px;
+        height: 1.58px;
+        border-radius: 1px;
+        background-color: $grey-color;
+      }
+      @media (max-width: 767px) {
+        padding: 9.33px;
+      }
+    }
+    &__lists___active {
+      background-image: $orange-color;
+      div {
+        background-color: $rich-white-color;
+      }
+    }
+  }
+
+  &_inputs {
+    @include flex(row, space-between, center, nowrap);
+    gap: 16px;
+
+    &__sort,
+    &__search {
+      @include flex(row, flex-start, center, nowrap);
+      border-radius: $radius-599px;
+      box-shadow: $shadow;
+    }
+    &__search {
+      padding: 10px 15px 10px 16px;
+      gap: 9px;
+
+      input {
+        width: 250px;
+        @media (width < 768px) {
+          display: none;
+          width: 231px;
+        }
+        caret-color: $orange-rich-color;
+      }
+      input::placeholder {
+        @include font(normal, 400, 14px, 18px, 0.1px);
+        color: $grey-color;
+        @media (width < 768px) {
+          @include font(normal, 400, 12px, 18px, 0px);
+        }
+      }
+      .input___active {
+        display: block;
+      }
+      @media (max-width: 767px) {
+        padding: 7px;
+        @include flex(row, center, center, nowrap);
+      }
+      span {
+        color: $orange-rich-color;
+        transform: rotate(45deg);
+        font-size: xx-large;
+        cursor: pointer;
+        display: none;
+        @media (width < 768px) {
+          display: block;
+        }
+      }
+    }
+    &__sort {
+      cursor: pointer;
+      width: 150px;
+      padding: 10px 16px 10px 18.5px;
+      gap: 9.2px;
+      @include font(normal, 400, 14px, 18px, 0.1px);
+      color: $grey-color;
+      span {
+        @media (max-width: 767px) {
+          display: none;
+        }
+      }
+      img {
+        transition: all ease 0.2s;
+      }
+      @media (max-width: 767px) {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border-radius: 50%;
+        @include flex(row, center, center, nowrap);
+      }
+      &:hover {
+        box-shadow: $button-pressed-shadow;
+      }
+      &:active {
+        box-shadow: $shadow;
+      }
+    }
+  }
+  @media (max-width: 950px) {
+    padding-bottom: 24px;
+  }
+  @media (max-width: 767px) {
+    padding-bottom: 19px;
+  }
+}

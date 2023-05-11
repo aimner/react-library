@@ -1,0 +1,32 @@
+@import '../../styles/abstracts/mixins';
+@import '../../styles/abstracts/variables';
+
+.footer {
+  .container {
+    @include container;
+
+    @include font(normal, 400, 16px, 24px, 0.1px);
+    color: $dark-color;
+
+    &_block {
+      border-top: 1px solid $grey-white-color;
+      @include flex(row, space-between, center, nowrap);
+      padding-block: 14px;
+      padding-top: 14px;
+      &__date {
+        @media (max-width: 767px) {
+          @include flex(column, flex-start, center, nowrap);
+        }
+      }
+      @media (max-width: 767px) {
+        flex-direction: column;
+        gap: 20px;
+      }
+      &__list {
+        @include flex(row, center, flex-end, nowrap);
+        height: 19px;
+        gap: 31px;
+      }
+    }
+  }
+}

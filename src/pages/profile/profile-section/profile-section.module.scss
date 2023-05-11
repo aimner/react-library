@@ -1,0 +1,60 @@
+@import '../../../styles/abstracts/mixins';
+@import '../../../styles/abstracts/variables';
+
+.profile {
+  @include flex(column, flex-start, stretch, nowrap);
+  gap: 92px;
+
+  &__avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 150px;
+    box-shadow: $shadow;
+    object-fit: cover;
+  }
+  &-firstBlock {
+    @include flex(row, flex-start, center, nowrap);
+    gap: 30px;
+
+    &-avatarBlock {
+      width: 160px;
+      height: 160px;
+      border-radius: 150px;
+      position: relative;
+
+      label {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 11;
+        background-image: linear-gradient(to top, rgba(54, 54, 54, 0.7) 26%, transparent 26%);
+        border-radius: 150px;
+        top: 0;
+        @include flex(column, flex-end, center, nowrap);
+        padding-bottom: 5px;
+        img {
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+      input {
+        display: none;
+      }
+    }
+    &-titleBlock {
+      @include flex(column, flex-start, center, nowrap);
+      color: $dark-color;
+      h2 {
+        @include font(normal, 500, 52px, 64px, 0.2px);
+        @media (width < 768px) {
+          @include font(normal, 500, 26px, 36px, 0);
+        }
+      }
+    }
+    @media (width < 768px) {
+      @include flex(column, flex-start, center, nowrap);
+    }
+  }
+}

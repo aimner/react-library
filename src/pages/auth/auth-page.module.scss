@@ -1,0 +1,28 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+.auth {
+  background-image: $orange-color;
+  width: 100vw;
+  height: 100vh;
+  @include flex(column, center, center, nowrap);
+
+  &_block {
+    @include flex(column, center, center, nowrap);
+    gap: 59px;
+    &__title {
+      @include font(normal, 700, 32px, 40px, 0.1px);
+      color: $rich-white-color;
+      @media (width < 600px) {
+        @include font(normal, 700, 18px, 28px, 0.1px);
+      }
+    }
+    @media (width < 1000px) {
+      gap: 113px;
+      padding-inline: 16px;
+    }
+    @media (width < 600px) {
+      gap: 12px;
+    }
+  }
+}

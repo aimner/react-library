@@ -1,0 +1,53 @@
+@import '../../styles/abstracts/mixins';
+
+.outer {
+  @include outer;
+  &_block {
+    @media (width < 768px) {
+      gap: 24px;
+    }
+  }
+}
+
+.closeButton {
+  @include closeButton;
+  & + p {
+    @include font(normal, 600, 16px, 24px, 0.1px);
+  }
+}
+
+.rateList {
+  @include flex(row, center, center, nowrap);
+  gap: 19px;
+  li {
+    @media (width < 768px) {
+      width: 27px;
+      height: 26px;
+    }
+  }
+  @media (width < 768px) {
+    gap: 17px;
+  }
+}
+
+.commentTextArea {
+  border-radius: $radius-4px;
+  background-color: $grey-rich-white-color;
+  resize: none;
+  width: 416px;
+  height: 132px;
+  padding: 19px 12px;
+  @media (width < 768px) {
+    width: 256px;
+  }
+}
+
+.submit {
+  @include button_primary_large(166px);
+  width: 100%;
+  &:disabled {
+    @include button_secondary_small(166px);
+    width: 100%;
+    cursor: url('../../assets/img/calendary/cursor.svg'), auto;
+  }
+}

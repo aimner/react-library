@@ -1,0 +1,43 @@
+@import '../../../../styles/abstracts/mixins';
+@import '../../../../styles/abstracts/variables';
+
+.books {
+  &___icons,
+  &___lists {
+    max-width: 824.5px;
+  }
+
+  &___icons {
+    @include flex(row, flex-start, center, wrap);
+    gap: 24px 21.5px;
+
+    @media (max-width: 950px) {
+      gap: 32px 35px;
+    }
+
+    @media (max-width: 767px) {
+      @include flex(row, center, center, wrap);
+      gap: 16px;
+    }
+  }
+
+  &___lists {
+    @include flex(column, flex-start, stretch, wrap);
+    gap: 16px;
+  }
+  &___notFound {
+    @include font(normal, 700, 32px, 40px, 0.1px);
+    color: $grey-color;
+    margin-top: 168px;
+    text-align: center;
+    @media (width < 1000px) {
+      margin-top: 202px;
+
+    }
+    @media (width < 768px) {
+      margin-top: 118px;
+      @include font(normal, 700, 18px, 28px, 0.1px);
+    }
+
+  }
+}

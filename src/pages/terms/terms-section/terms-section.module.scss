@@ -1,0 +1,37 @@
+@import '../../../styles/abstracts/mixins';
+@import '../../../styles/abstracts/variables';
+
+.terms_block {
+  max-width: 824.5px;
+  &__title {
+    @include flex(row, flex-start, flex-start, nowrap);
+    @include font(normal, 700, 32px, 40px, 0.1px);
+    color: $dark-color;
+    @media (width < 768px) {
+      @include font(normal, 700, 18px, 28px, 0.1px);
+    }
+  }
+  li {
+    @include font(normal, 600, 16px, 24px, 0.1px);
+    color: $dark-color;
+    padding-top: 32px;
+    li {
+      @include font(normal, 400, 16px, 24px, 0.1px);
+      padding: 16px 0 0 30px;
+      li {
+        padding-left: 30px;
+      }
+      @media (width < 768px) {
+        @include font(normal, 400, 15px, 20px, 0.1px);
+      }
+    }
+    @media (width < 768px) {
+      padding-top: 24px;
+    }
+  }
+  &__lastItem {
+    @media (width < 500px) {
+      padding-bottom: 8px;
+    }
+  }
+}

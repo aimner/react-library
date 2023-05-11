@@ -1,0 +1,83 @@
+@import '../../../../styles/abstracts/mixins';
+@import '../../../../styles/abstracts/variables';
+
+
+.profileChangeBlock {
+  h3 {
+    @include font(normal, 700, 24px, 30px, 0.1px);
+    color: $dark-color;
+    margin-bottom: 8px;
+  }
+  p {
+    @include font(normal, 400, 16px, 24px, 0.1px);
+    color: $grey-color;
+    margin-bottom: 32px;
+  }
+}
+
+.form {
+  @include flex(row, flex-start, stretch, wrap);
+  @include font(normal, 600, 14px, 18px, 0.1px);
+  gap: 36px 30px;
+  &-item {
+    width: 540px;
+    & > div {
+      margin-bottom: 0;
+    }
+    @media (width < 1200px) {
+      width: 305px;
+    }
+    @media (width < 768px) {
+      width: 288px;
+    }
+    span {
+      margin-bottom: 0;
+    }
+  }
+  @media (max-width: 767px) {
+  @include flex(column, flex-start, center, wrap);
+      
+  }
+}
+
+.form__notActive {
+  .form-item {
+    & > span {
+      display: none;
+    }
+    & > div {
+      margin-bottom: 0;
+      border: none;
+      & > input {
+        border: none;
+      }
+    }
+
+  }
+}
+
+.button {
+  @include button_primary_large(350px);
+
+  @media (max-width: 1023px) {
+    width: 306px;
+  }
+  @media (max-width: 767px) {
+    @include button_primary_small(288px);
+    border-radius: 30px;
+  }
+}
+
+.buttonChange {
+  @include button_secondary_large(350px);
+  background-color: inherit;
+  @media (max-width: 1023px) {
+    width: 306px;
+  }
+  @media (max-width: 767px) {
+    @include button_secondary_small(288px);
+    background-color: inherit;
+    border-radius: 30px;
+  }
+}
+
