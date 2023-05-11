@@ -36,7 +36,13 @@ module.exports = {
     '@typescript-eslint/no-unused-expressions': 'off',
     'import/no-default-export': 'off',
     'no-param-reassign': 'off',
-    'prefer-template': 'off'
+    'prefer-template': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'react/jsx-fragments': 'off',
+    'no-negated-condition': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'simple-import-sort/imports': 'off',
+    'padding-line-between-statements': 'off'
   },
   ignorePatterns: ['coverage', 'cypress.config.ts'],
 };
