@@ -42,7 +42,8 @@ module.exports = {
     'no-negated-condition': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     'simple-import-sort/imports': 'off',
-    'padding-line-between-statements': 'off'
+    'padding-line-between-statements': 'off',
+    '@typescript-eslint/no-shadow': 'off'
   },
   ignorePatterns: ['coverage', 'cypress.config.ts'],
 };
