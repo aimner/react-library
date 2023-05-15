@@ -9,7 +9,7 @@ import { Nav } from '../../components/nav';
 import { Arrow } from '../../components/nav/arrow';
 import { RateBook } from '../../components/rate-book';
 import { StarsList } from '../../components/stars-list';
-import { buttonClass, buttonText, fullUrl } from '../../functions/functions';
+import { buttonClass, buttonText } from '../../functions/functions';
 import { ShowSideBarType } from '../app';
 
 import { Сommentary } from './comment';
@@ -88,8 +88,8 @@ export const BookPage: React.FC<PropsType> = ({ showSideBar, setShowSideBar }) =
                         {book.images.map(({ url }) => (
                           <SwiperSlide style={{ width: '65px', height: '150px' }} key={uuidv4()}>
                             <img
-                              onClick={() => setActiveImg(fullUrl(url))}
-                              src={fullUrl(url)}
+                              onClick={() => setActiveImg(url)}
+                              src={url}
                               alt='book'
                               className={classes.swiperMobile_block__img}
                             />
@@ -113,12 +113,12 @@ export const BookPage: React.FC<PropsType> = ({ showSideBar, setShowSideBar }) =
                         {book.images?.map(({ url }) => (
                           <SwiperSlide style={{ width: '65px' }} key={uuidv4()}>
                             <img
-                              onClick={() => setActiveImg(fullUrl(url))}
+                              onClick={() => setActiveImg(url)}
                               className={cx({
-                                swiper_block__img___active: fullUrl(url) === activeImg,
-                                swiper_block__img: fullUrl(url) !== activeImg,
+                                swiper_block__img___active: url === activeImg,
+                                swiper_block__img: url !== activeImg,
                               })}
-                              src={fullUrl(url)}
+                              src={url}
                               alt='book'
                             />
                           </SwiperSlide>

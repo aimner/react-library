@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import no_book_img from '../../assets/img/main/books/no_book.png';
 import { useOpenToast } from '../../components/toast-custom/hooks';
-import { fullUrl } from '../../functions/functions';
+
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { selectUserId } from '../../store/features/auth/selectors';
 import { selectBook } from '../../store/features/book-page/selectors';
@@ -77,10 +77,6 @@ export const useBookPage = () => {
 
   const dispatch = useAppDispatch();
 
-  // TO PASS THE TEST
-
-  //
-
   useEffect(() => {
     dispatch(fetchBook(+bookId))
       .unwrap()
@@ -90,7 +86,10 @@ export const useBookPage = () => {
   }, [bookId]);
 
   useEffect(() => {
-    setActiveImg(book?.images?.length ? fullUrl(book?.images[0]?.url) : no_book_img);
+    if(book?.images) {
+      setActiveImg(book?.images[0]?.url || no_book_img);
+
+    }
   }, [book]);
 
   const wasComment = () => {

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import logo from '../../assets/img/header/logo.svg';
 import no_avatar from '../../assets/img/profile/no_avatar.svg';
-import { disableScroll, enableScroll, fullUrl } from '../../functions/functions';
+import { disableScroll, enableScroll } from '../../functions/functions';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { ShowSideBarType } from '../../pages/app';
 import { logout } from '../../store/features/auth/auth-slice';
@@ -32,26 +32,6 @@ export const Header: React.FC<PropsType> = ({ setShowSideBar, showSideBar, openM
 
   const profile = useAppSelector(selectProfile);
 
-  const [hideMenu, setHideMenu] = useState(false);
-
-  // TO PASS THE TEST
-  useEffect(() => {
-    const hideMenuByResize = () => {
-      if (window.innerWidth > 950) {
-        setHideMenu(true);
-      } else {
-        setHideMenu(false);
-      }
-    };
-
-    hideMenuByResize();
-    window.addEventListener('resize', hideMenuByResize);
-
-    return () => {
-      window.removeEventListener('resize', hideMenuByResize);
-    };
-  }, []);
-
   return (
     <header
       className={cx({
@@ -67,7 +47,6 @@ export const Header: React.FC<PropsType> = ({ setShowSideBar, showSideBar, openM
               : setShowSideBar({ show: !showSideBar.show, open: splitLocation[1] === 'books' ? true : false });
           }}
           className={showSideBar.show ? classes.hamburger__active : classes.hamburger}
-
         >
           <span />
           <span />
@@ -84,34 +63,27 @@ export const Header: React.FC<PropsType> = ({ setShowSideBar, showSideBar, openM
           <p className={classes.container_avatar__text}>
             Привет, {profile?.firstName} {profile?.lastName}!
           </p>
-          <img
-            src={profile?.avatar ? fullUrl(profile?.avatar) : no_avatar}
-            alt='avatar'
-            className={classes.container_avatar__img}
-          />
+          <img src={profile?.avatar || no_avatar} alt='avatar' className={classes.container_avatar__img} />
         </div>
-        {hideMenu && (
-          <div
-            id='header-menu'
-            className={cx({
-              container_menu: true,
-              close: !openMenu,
-            })}
-          >
-            <ul>
-              <li>
-                <Link to='/profile' >
-                  Профиль
-                </Link>
-              </li>
-              <li>
-                <Link to='/auth' onClick={() => dispatch(logout())} >
-                  Выход
-                </Link>
-              </li>
-            </ul>
-          </div>
-        )}
+
+        <div
+          id='header-menu'
+          className={cx({
+            container_menu: true,
+            close: !openMenu,
+          })}
+        >
+          <ul>
+            <li>
+              <Link to='/profile'>Профиль</Link>
+            </li>
+            <li>
+              <Link to='/auth' onClick={() => dispatch(logout())}>
+                Выход
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
   );

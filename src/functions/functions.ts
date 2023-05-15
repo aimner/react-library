@@ -47,10 +47,6 @@ export const getDate = (text: string) => {
   });
 };
 
-export const fullUrl = (url: string | undefined | null) => {
-  return `https://strapi.cleverland.by${url}`;
-};
-
 export const booksQuantity = (books: Books[] | null, text: string) => {
   if (books) {
     const booksWithСertainCategory = books.filter((book) => book.categories.some((category) => category === text));

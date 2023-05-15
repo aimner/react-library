@@ -1,6 +1,5 @@
 import camera from '../../../assets/img/profile/camera.svg';
 import no_avatar from '../../../assets/img/profile/no_avatar.svg';
-import { fullUrl } from '../../../functions/functions';
 
 import { ProfileForm } from './profile-form/profile-form';
 import { useProfileData } from './hooks';
@@ -18,7 +17,7 @@ export const ProfileSection = () => {
       <div className={classes['profile-firstBlock']} >
         <div className={classes['profile-firstBlock-avatarBlock']}>
           <img
-            src={profile?.avatar ? fullUrl(profile.avatar) : no_avatar}
+            src={profile?.avatar || no_avatar}
             alt='avatar'
             className={classes.profile__avatar}
             loading='lazy'

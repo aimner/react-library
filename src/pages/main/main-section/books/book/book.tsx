@@ -22,6 +22,8 @@ export const Book: React.FC<
 > = ({ title, rating, active, id, authors, booking, image, issueYear, delivery, bookingBlock, comments }) => {
   const { dispatch, finalUrl, navigate, searchValue, splitLocation, userId } = useBook(image);
 
+
+
   return (
     <li
       onClick={() => navigate(`/books/${splitLocation[2] || 'all'}/${id}`)}

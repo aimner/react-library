@@ -3,12 +3,9 @@
 
 .nav {
   &_logOutBlock {
-    padding-top: 32px;
-    border-top: 1px solid #BFC4C9;
     &_list {
       @include flex(column, flex-start, flex-start, nowrap);
-      gap: 42px;
-
+      gap: 20px;
     }
   }
   &__item,
@@ -29,11 +26,10 @@
   }
   &__item1___active {
     @include flex(row, space-between, center, nowrap);
-    border-bottom: 1px solid orangered;
+
     padding-bottom: 8px;
   }
   &__item___active {
-    border-bottom: 1px solid orangered;
     padding-bottom: 8px;
     max-width: 255px;
   }
@@ -57,10 +53,10 @@
 
   @media (max-width: 950px) {
     position: absolute;
-    z-index: 11;
+    z-index: 110;
     background-color: $grey-rich-white-color;
     border-radius: $radius-10px;
-    padding: 32px 32px 52px 32px;
+    padding: 32px;
     width: 502px;
     transition: all 0.3s ease;
     box-shadow: $shadow;
@@ -70,7 +66,7 @@
   @media (width < 530px) {
     width: 288px;
     padding-inline: 16px 10px;
-    top: 76px;
+    top: 56px;
   }
   @media (height < 590px) {
     top: 10px;
@@ -139,11 +135,8 @@
 .books___open {
   height: auto;
   @media (width < 950px) {
-    height: 41vh;
+    height: 30vh;
     overflow-y: scroll;
-  }
-  @media (height < 590px) {
-    height: 31vh;
   }
 }
 
